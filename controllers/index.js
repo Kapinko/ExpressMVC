@@ -3,10 +3,8 @@
  */
 module.exports	= (function (app) {
 	app.namespace('/', function () {
-		app.all('/', function (req, res, next) {
-			res.render('index/index', {
-				'heading': 'Hello World! the time is: ' + new Date().toString()
-			});
+		app.all('/', app.Plugin('i18n'), function (req, res, next) {
+			res.render('index/index');
 		});
 	});
 });

@@ -13,6 +13,7 @@
 	}));
 	
 	app.Library('controller');
+	app.Library('plugin');
 	
 	app.configure(function () {
 		app.register('.stache', app.Library('mustache'))
