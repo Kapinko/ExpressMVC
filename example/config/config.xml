@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configurations>
+	<config>
+		<file>common.xml</file>
+	</config>
+	<config>
+		<file>development.xml</file>
+	</config>
+</configurations>

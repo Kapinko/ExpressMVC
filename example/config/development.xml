@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+	<test>true</test>
+	<database>
+		<host>127.0.0.1</host>
+		<user>root</user>
+		<password></password>
+		<name>psync4</name>
+	</database>
+</config>
