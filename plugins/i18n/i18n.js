@@ -1,10 +1,11 @@
 (function () {
 	var _	= require('underscore');
 	
-	module.exports	= function (app) {
-		var i18n		= app.Library('i18n'),
-			locale		= app.set('locale') || null,
-			i18n_dir	= app.set('i18n_dir') || null;
+	module.exports	= function (MVC, server) {
+		var i18n		= MVC.Library('i18n'),
+			locale		= MVC.config.getValue('application.i18n.locale') || null,
+			i18n_dir	= MVC.config.getValue('application.i18n.path') 
+						|| MVC.application_path + '/i18n';
 			
 		if (locale) {
 			i18n.setLocale(locale);
@@ -18,7 +19,7 @@
 			var render	= res.render;
 			
 			res.render	= function (template, options) {
-				var strings	= i18n.load(template, locale)(app);
+				var strings	= i18n.load(template, locale)(server);
 				
 				options		= options || {};
 				

@@ -1,9 +1,13 @@
 /**
  * This is the index controller.
  */
-module.exports	= (function (app) {
-	app.namespace('/', function () {
-		app.all('/', app.Plugin('i18n'), function (req, res, next) {
+/**
+ * @param {MVC} MVC
+ * @param {HTTPServer} server
+ */
+module.exports	= (function (MVC, server) {
+	server.namespace('/', function () {
+		server.all('/', MVC.Plugin('i18n'), function (req, res, next) {
 			res.render('index/index');
 		});
 	});

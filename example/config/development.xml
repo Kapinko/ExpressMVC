@@ -2,6 +2,19 @@
 
 <config>
 	<test>true</test>
+	<application>
+		<path>/Library/Webserver/ExpressMVC/example</path>
+		<controller>
+			<path>/Library/WebServer/ExpressMVC/example/controllers</path>
+		</controller>
+		<library>
+			<path>/Library/WebServer/ExpressMVC/lib</path>
+		</library>
+		<plugin>
+			<path>/Library/WebServer/ExpressMVC/plugins</path>
+		</plugin>
+		<listen>8080</listen>
+	</application>
 	<database>
 		<host>127.0.0.1</host>
 		<user>root</user>
