@@ -1,0 +1,26 @@
+# ExpressMVC - a simple boilerplate library to assist in the setup of and expressjs
+#	MVC application.  The setup should be comfortable and familiar to most PHP
+#	developers.
+
+# This is a complete JavaScript framework that you can use to develop 
+# applications that live completely in the browser and use only JavaScript
+# (with a little HTML thrown in).
+#
+# @author Nathan Anthony Sculli
+#
+# All original code within this library is
+# Copyright Nathan Anthony Sculli 2010 - 2011
+#
+#
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU Lesser General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU Lesser General Public License for more details.
+
+#  You should have received a copy of the GNU Lesser General Public License
+#  along with this program.  If not, see <http://www.gnu.org/licenses/>.
