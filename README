@@ -2,10 +2,6 @@
 #	MVC application.  The setup should be comfortable and familiar to most PHP
 #	developers.
 
-# This is a complete JavaScript framework that you can use to develop 
-# applications that live completely in the browser and use only JavaScript
-# (with a little HTML thrown in).
-#
 # @author Nathan Anthony Sculli
 #
 # All original code within this library is
