@@ -20,3 +20,16 @@
 
 #  You should have received a copy of the GNU Lesser General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+The following NPM modules are required:
+(Install in a sibling directory to the ExpressMVC directory, ie issue the command from
+the parent directory of the ExpressMVC directory)
+npm install underscore
+npm install express
+npm install express-namespace
+npm install express-params
+npm install connect-form
+npm install generic-pool
+npm install mysql
+npm install xml2js
