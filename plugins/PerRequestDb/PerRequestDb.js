@@ -1,8 +1,8 @@
 
 
-module.exports	= function (app) {
-	var mysql		= require('db-mysql'),
-		db_config	= app.set('database'),
+module.exports	= function (MVC, server) {
+	var mysql		= require('mysql'),
+		db_config	= MVC.config.getValue('database'),
 		pool		= require('generic-pool').Pool({
 			'name': 'mysql',
 			'max': 10,
@@ -12,9 +12,8 @@ module.exports	= function (app) {
 					db_config.password	= '';
 				}
 				
-				new mysql.Database(db_config).connect(function (error, server) {
-					callback(error, this);
-				});
+				var client	= mysql.createClient(db_config);
+				callback(client);
 			},
 			
 			'destroy': function (db) {
@@ -23,7 +22,7 @@ module.exports	= function (app) {
 		});
 		
 	return function (req, res, next) {
-		if (!(req.db instanceof mysql.Database)) {
+		if (!req.db) {
 			pool.acquire(function (error, db) {
 				if (error) {
 					return res.end('CONNECTION ERROR: ' + error);

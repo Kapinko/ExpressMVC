@@ -111,6 +111,9 @@
 	 * @return {MVC}
 	 */
 	MVC.prototype.init	= function(callback, config) {
+		/**
+		 * @type {Config}
+		 */
 		this.config	= config;
 				
 		var	lib_func	= _.bind(this.Library, this),
@@ -142,9 +145,16 @@
 	};
 	
 	MVC.prototype.Plugin		= function (name) {
-		var file	= this.config.getValue('application.plugin.file') || name;
+		var file	= this.config.getValue('application.plugin.file') || name,
+			plugin;
 		
-		return mvc_loader.call(this, name + '/' + file, this.plugin_path)(this, this.server);
+		try {
+			plugin	= mvc_loader.call(this, name + '/' + file, this.plugin_path)(this, this.server);
+		} catch (e) {
+			plugin	= mvc_loader.call(this, name + '/' + file, this.application_path + '/plugins')(this, this.server);
+		}
+		
+		return plugin;
 	}
 	
 	MVC.prototype.addLibrary	= function (name, base_dir, main_file_name) {
