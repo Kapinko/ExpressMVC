@@ -1,8 +1,8 @@
 
 
-module.exports	= function (MVC, server) {
+module.exports	= function (MVC, server, config_name) {
 	var mysql		= require('mysql'),
-		db_config	= MVC.config.getValue('database'),
+		db_config	= MVC.config.getValue(config_name || 'database'),
 		pool		= require('generic-pool').Pool({
 			'name': 'mysql',
 			'max': 10,

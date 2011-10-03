@@ -141,17 +141,27 @@
 	};
 	
 	MVC.prototype.Controller	= function (name) {
-		return mvc_loader.call(this, name, this.controller_path)(this, this.server);
+		var args	= Array.prototype.slice.call(arguments, 1);
+		args.unshift(this.server);
+		args.unshift(this);
+		
+		return mvc_loader.call(this, name, this.controller_path).apply(null, args);
 	};
 	
 	MVC.prototype.Plugin		= function (name) {
 		var file	= this.config.getValue('application.plugin.file') || name,
+			args	= Array.prototype.slice.call(arguments, 1),
 			plugin;
+			
+			args.unshift(this.server);
+			args.unshift(this);
 		
 		try {
-			plugin	= mvc_loader.call(this, name + '/' + file, this.plugin_path)(this, this.server);
+			plugin	= mvc_loader.call(this, name + '/' + file, this.plugin_path).apply(null, args);
 		} catch (e) {
-			plugin	= mvc_loader.call(this, name + '/' + file, this.application_path + '/plugins')(this, this.server);
+			console.log('EXCEPTION');
+			console.log(e);
+			plugin	= mvc_loader.call(this, name + '/' + file, this.application_path + '/plugins').apply(null, args);
 		}
 		
 		return plugin;
