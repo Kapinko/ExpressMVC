@@ -1,5 +1,50 @@
 (function () {
-	var _	= require('underscore');
+	var _		= require('underscore'),
+		path	= require('path'),
+		/**
+		 * Parse an i18n file name from the given template name.
+		 * @param {string} template_name
+		 * @return {string}
+		 */
+		i18n_name	= function (template_name) {
+			var ext	= path.extname(template_name);
+			
+			return template_name.replace(ext, '');
+		},
+		/**
+		 * Retrieve the layout string file if we're given a template or the
+		 * default template if set to use one.
+		 * @param {HTTPServer} server
+		 * @param {Object.<string,*>} options
+		 * @return {string|null}
+		 */
+		i18n_layout	= function (server, options) {
+			var layout			= null,
+				view_options;
+			
+			if (options.hasOwnProperty('layout')) {
+				layout	= options.layout;
+			}
+			
+			if (layout === null) {
+				view_options	= server.set('view_options');
+					
+				if (view_options && view_options.hasOwnProperty('layout')) {
+					layout		= view_options.layout;
+				}
+			}
+			
+			if (layout) {
+				if (typeof layout !== 'string') {
+					//load the default layout as defined int expressjs
+					layout	= 'layout';
+				} else {
+					layout	= i18n_name(layout);
+				}
+			}
+			
+			return layout;
+		};
 	
 	module.exports	= function (MVC, server) {
 		var i18n		= MVC.Library('i18n'),
@@ -19,12 +64,14 @@
 			var render	= res.render;
 			
 			res.render	= function (template, options) {
-				var strings	= i18n.load(template, locale)(server);
+				var file	= i18n_name(template),
+					strings	= i18n.load(file, locale)(server),
+					layout	= i18n.load(i18n_layout(server, options), locale)(server);
 				
 				options		= options || {};
 				
-				if (strings) {
-					_.extend(options, strings);
+				if (strings || layout) {
+					_.extend(options, layout, strings);
 				}
 				render.call(this, template, options);
 			}
