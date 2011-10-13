@@ -88,6 +88,12 @@
 			if (!this.i18n_path) {
 				this.i18n_path		= this.application_path + '/i18n';
 			}
+			
+			/**
+			 * This is the setting for the static files path.
+			 * @var {string}
+			 */
+			this.static_path		= this.config.getValue('application.static.path');
 		};
 	
 	//required express plugins
@@ -130,6 +136,10 @@
 			server.register('.stache', lib_func('mustache'));
 			server.set('view engine', 'stache');
 			server.set('views', this.view_path);
+			
+			if (this.static_path) {
+				server.use(express.static(this.static_path, { maxAge: 'oneYear' }));
+			}
 		}, this));
 		
 		callback(this, server);
