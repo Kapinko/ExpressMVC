@@ -124,12 +124,13 @@
 			);
 		this.server		= server;
 		
-		server.configure(function () {
+		setup_paths.call(this);
+		
+		server.configure(_.bind(function () {
 			server.register('.stache', lib_func('mustache'));
 			server.set('view engine', 'stache');
-		});
-		
-		setup_paths.call(this);
+			server.set('views', this.view_path);
+		}, this));
 		
 		callback(this, server);
 		return this;
