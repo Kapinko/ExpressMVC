@@ -160,8 +160,6 @@
 		try {
 			plugin	= mvc_loader.call(this, name + '/' + file, this.plugin_path).apply(null, args);
 		} catch (e) {
-			console.log('EXCEPTION');
-			console.log(e);
 			plugin	= mvc_loader.call(this, name + '/' + file, this.application_path + '/plugins').apply(null, args);
 		}
 		
