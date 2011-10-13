@@ -65,8 +65,8 @@
 			
 			res.render	= function (template, options) {
 				var file	= i18n_name(template),
-					strings	= i18n.load(file, locale)(server),
-					layout	= i18n.load(i18n_layout(server, options), locale)(server);
+					strings	= i18n.load(file, locale)(options),
+					layout	= i18n.load(i18n_layout(server, options), locale)(options);
 				
 				options		= options || {};
 				
