@@ -137,6 +137,14 @@
 			server.set('view engine', 'stache');
 			server.set('views', this.view_path);
 			
+			server.use(express.bodyParser()),
+			server.use(express.cookieParser());
+			server.use(express.session({
+				"secret": this.config.sessionSecret || "All this crazy stuff"
+			}));
+			server.use(server.router);
+			server.use(express.errorHandler());
+			
 			if (this.static_path) {
 				server.use(express.static(this.static_path, { maxAge: 'oneYear' }));
 			}
@@ -148,6 +156,7 @@
 	
 	MVC.prototype.run	= function () {
 		var port	= this.config.getValue('application.listen');
+		console.log("Listening on port: " + port);
 		this.server.listen(port);
 	};
 	
