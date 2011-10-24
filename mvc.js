@@ -193,13 +193,16 @@
 	}
 	
 	MVC.prototype.Library		= function (name, type) {
-		var lib;
+		var lib, 
+			args	= Array.prototype.slice.call(arguments, 2);
+			
+		args.unshift(name);
 		
 		if (!type) {
-			lib	= CoreLib(name);
+			lib	= CoreLib.apply(null, args);
 			
 		} else {
-			lib	= this.loaders[type](name);
+			lib	= this.loaders[type].apply(null, args);
 		}
 		
 		return lib;
