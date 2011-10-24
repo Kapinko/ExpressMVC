@@ -65,8 +65,20 @@
 			
 			res.render	= function (template, options) {
 				var file	= i18n_name(template),
-					strings	= i18n.load(file, locale)(options),
-					layout	= i18n.load(i18n_layout(server, options), locale)(options);
+					strings	= i18n.load(file, locale),
+					layout	= i18n.load(i18n_layout(server, options), locale);
+					
+				if (typeof strings === 'function') {
+					strings	= strings(options);
+				} else {
+					console.warn('Invalid i18n file (must be a function): ' + file);
+				}
+				
+				if (!typeof layout === 'function') {
+					layout	= layout(options);
+				} else {
+					console.warn('Invalid i18n layout file (must be a function): ' + file);
+				}
 				
 				options		= options || {};
 				
