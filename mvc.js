@@ -137,7 +137,7 @@
 			server.set('view engine', 'stache');
 			server.set('views', this.view_path);
 			
-			server.use(express.bodyParser()),
+			server.use(express.bodyParser());
 			server.use(express.cookieParser());
 			server.use(express.session({
 				"secret": this.config.sessionSecret || "All this crazy stuff"
@@ -152,7 +152,7 @@
 		
 		callback(this, server);
 		return this;
-	}
+	};
 	
 	MVC.prototype.run	= function () {
 		var port	= this.config.getValue('application.listen');
@@ -183,14 +183,14 @@
 		}
 		
 		return plugin;
-	}
+	};
 	
 	MVC.prototype.addLibrary	= function (name, base_dir, main_file_name) {
 		var lib_loader		= loader(base_dir, main_file_name);
 		this.loaders[name]	= lib_loader;
 		
 		return lib_loader;
-	}
+	};
 	
 	MVC.prototype.Library		= function (name, type) {
 		var lib, 
@@ -206,7 +206,7 @@
 		}
 		
 		return lib;
-	}
+	};
 	
 	//expose the MVC object
 	module.exports	= MVC;
