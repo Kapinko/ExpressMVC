@@ -88,33 +88,33 @@
             arr = [1, 2, 3],
             nestedarray = { arr: arr };
         
-        vows.describe('When calling nquery.extend()').addBatch({
+        vows.describe('When calling nquery.merge()').addBatch({
             'with two different objects': {
-                topic: nquery.extend(settings, options),
+                topic: nquery.merge(settings, options),
                 'should return an object that represents the merge of the two objects': function (topic) {
                     assert.deepEqual(settings, merged);
                 }
             },
             'with an object and a copy of itself': {
-                topic: nquery.extend(options, optionsCopy),
+                topic: nquery.merge(options, optionsCopy),
                 'should return an un-modified copy of the first object': function (topic) {
                     assert.deepEqual(options, optionsCopy);
                 }
             },
             'with two different objects and a "null" second parameter': {
-                topic: nquery.extend(settings, null, options),
+                topic: nquery.merge(settings, null, options),
                 'should return an object that represents the merge of the two objects': function (topic) {
                     assert.deepEqual(settings, merged);
                 }
             },
             'with an object, a copy of itself and a "null" second parameter': {
-                topic: nquery.extend(options, null, optionsCopy),
+                topic: nquery.merge(options, null, optionsCopy),
                 'should return an un-modified copy of the first object': function (topic) {
                     assert.deepEqual(options, optionsCopy);
                 }
             },
             'with a deep copy request and two different objects': {
-                topic: nquery.extend(true, deep1, deep2),
+                topic: nquery.merge(true, deep1, deep2),
                 'should result in a proper deep merge': function (topic) {
                     assert.deepEqual(deep1.foo, deepmerged.foo);
                 },
@@ -126,20 +126,20 @@
                 }
             },
             'with a deep copy request on a nested child array': {
-                topic: nquery.extend(true, {}, nestedarray).arr,
+                topic: nquery.merge(true, {}, nestedarray).arr,
                 'should clone the child array': function (topic) {
                     assert.notStrictEqual(topic, arr);
                 }
             },
             // jQuery issue #5991
             'with a deep copy request and a nested array second parmeter that is the same name as an object of the first parameter': {
-                topic: nquery.extend(true, { arr: {} }, nestedarray).arr,
+                topic: nquery.merge(true, { arr: {} }, nestedarray).arr,
                 'should clone the array': function (topic) {
                     assert.isArray(topic);
                 }
             },
             'with a deep copy request and a nested object second parameter that is the same name as a nested array of the first parameter': {
-                topic: nquery.extend(true, { arr: arr }, { arr: {} }).arr,
+                topic: nquery.merge(true, { arr: arr }, { arr: {} }).arr,
                 'should clone the plain object': function (topic) {
                   assert.isTrue(nquery.isPlainObject(topic));  
                 }
@@ -149,7 +149,7 @@
                     var empty   = {},
                         optionsWithLength   = { foo: { length: -1 } };
                         
-                    nquery.extend(true, empty, optionsWithLength);
+                    nquery.merge(true, empty, optionsWithLength);
                     return {
                         one: empty.foo,
                         two: optionsWithLength.foo
@@ -164,7 +164,7 @@
                     var empty   = {},
                         optionsWithDate = { foo: { date: new Date() } };
                         
-                    nquery.extend(true, empty, optionsWithDate);
+                    nquery.merge(true, empty, optionsWithDate);
                     return {
                         one: empty.foo.date,
                         two: optionsWithDate.foo.date
@@ -181,7 +181,7 @@
                         optionsWithCustomObject = { foo: { date: custom } },
                         empty   = {};
                         
-                    nquery.extend(true, empty, optionsWithCustomObject);
+                    nquery.merge(true, empty, optionsWithCustomObject);
                     
                     return {
                         'foo': empty.foo,
@@ -203,7 +203,7 @@
                     custom                  = new myKlass();
                     optionsWithCustomObject = { foo: { date: custom } };
                     
-                    nquery.extend(true, empty, optionsWithCustomObject);
+                    nquery.merge(true, empty, optionsWithCustomObject);
                     
                     return {
                         'foo': empty.foo,
@@ -216,7 +216,7 @@
                 }
             },
             'with nested null parameters': {
-                topic: nquery.extend({}, options, { xnumber2: null, xnumber0: null }),
+                topic: nquery.merge({}, options, { xnumber2: null, xnumber0: null }),
                 'should copy the null value': function (topic) {
                     assert.isNull(topic.xnumber2);
                 },
@@ -226,7 +226,7 @@
             },
             'with nested undefined parameters': {
                 topic: function () {
-                    var nullUndef       = nquery.extend(nullUndef, options, { xnumber2: undefined });
+                    var nullUndef       = nquery.merge(nullUndef, options, { xnumber2: undefined });
                     return nullUndef;
                 },
                 'should ignore the undefined value': function (topic) {
@@ -238,7 +238,7 @@
                     var target  = {},
                         recursive   = { foo: target, bar: 5 };
                         
-                    nquery.extend(true, target, recursive);
+                    nquery.merge(true, target, recursive);
                     
                     return target;
                 },
@@ -247,19 +247,19 @@
                 }
             },
             'with a nested falsy parameter': {
-                topic: nquery.extend(true, { foo: [] }, { foo: [0] } ),
+                topic: nquery.merge(true, { foo: [] }, { foo: [0] } ),
                 'should copy over the falsy value': function (topic) {
                     assert.strictEqual(topic.foo.length, 1);
                 }
             },
             'with equal by coersion values': {
-                topic: nquery.extend(true, { foo: "1,2,3" }, { foo: [1,2,3] } ),
+                topic: nquery.merge(true, { foo: "1,2,3" }, { foo: [1,2,3] } ),
                 'should overwrite properly': function (topic) {
                     assert.isArray(topic.foo);
                 }
             },
             'with a deep copy request and a nested null overwrite value jQuery issue #1908': {
-                topic: nquery.extend(true, { foo: "bar" }, { foo: null } ),
+                topic: nquery.merge(true, { foo: "bar" }, { foo: null } ),
                 'should not crash': function (topic) {
                     assert.isTrue((topic.foo !== undefined));
                     assert.strictEqual(topic.foo, null);
@@ -268,7 +268,7 @@
             'with a null that should be overridden': {
                 topic: function () {
                     var obj = { foo: null };
-                    nquery.extend(true, obj, { foo:"notnull"} );
+                    nquery.merge(true, obj, { foo:"notnull"} );
                     return obj;
                 },
                 'should overwrite the null value': function (topic) {
@@ -278,7 +278,7 @@
             'with a function to be extended by an object': {
                 topic: function () {
                     function func() {}
-                    nquery.extend(func, { key: "value" } );
+                    nquery.merge(func, { key: "value" } );
                     return func;
                 },
                 'should properly extend the function': function (topic) {
@@ -295,7 +295,7 @@
                     merged2 = { xnumber1: 5, xnumber2: 1, xstring1: "peter", xstring2: "xx", xxx: "newstringx" };
                     
                 return {
-                    topic: nquery.extend({}, defaults, options1, options2),
+                    topic: nquery.merge({}, defaults, options1, options2),
                     'should return a properly merged object': function (topic) {
                         assert.deepEqual(topic, merged2);
                     },
