@@ -21,6 +21,9 @@
 #  You should have received a copy of the GNU Lesser General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+The following global NPM modules are required:
+npm install -g nodemon
+npm install -g vows
 
 The following NPM modules are required:
 (Install in a sibling directory to the ExpressMVC directory, ie issue the command from
