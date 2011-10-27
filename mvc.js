@@ -11,6 +11,24 @@
 		loader		= require('./lib/loader'),
 		CoreLib		= loader(),
 		Config		= CoreLib('config'),
+        
+        /**
+         * An object cache for the various loader functions.
+         * @type {Object.<string,*>}
+         */
+        loader_cache    = {},
+        
+        /**
+         *  Load a given cache store
+         * @param {string} name
+         * @return {Object.<string,*>}
+         */
+        get_cache_store = function (name) {
+            if (!loader_cache.hasOwnProperty(name)) {
+                loader_cache[name]  = {};
+            }
+            return loader_cache[name];
+        },
 		
 		/**
 		 * Abstraction of the object loading.
@@ -19,10 +37,18 @@
 		 * @return {*}
 		 */
 		mvc_loader	= function (name, base_dir) {
-			var object_path;
-
-			object_path		= path.join(path.normalize(base_dir), name);
-			return require(object_path);
+			var object,
+                object_path = path.join(path.normalize(base_dir), name),
+                cache       = get_cache_store('mvc');
+            
+            //Let's cache our loaded objects.
+            if (cache.hasOwnProperty(object_path)) {
+                object      = cache[object_path];
+            } else {
+                object      = require(object_path);
+            }
+            
+            return object;
 		},
 		
 		/**
