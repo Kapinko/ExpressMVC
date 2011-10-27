@@ -28,7 +28,7 @@ npm install -g vows
 The following NPM modules are required:
 (Install in a sibling directory to the ExpressMVC directory, ie issue the command from
 the parent directory of the ExpressMVC directory)
-npm install underscore
+npm install underscore underscore.string
 npm install express
 npm install express-namespace
 npm install express-params
