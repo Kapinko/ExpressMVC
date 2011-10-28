@@ -1,0 +1,30 @@
+{
+  "author": "Nathan A Sculli <nathan.sculli@kapinko.com> (nathansculli.com)",
+  "name": "ExpressMVC",
+  "description": "An MVC framework that should be familiar tenough to PHP developers to allow them to get up and running very quickly.\"",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Kapinko/ExpressMVC.git"
+  },
+  "keywords": [
+  	"mvc",
+  	"framework"
+  ],
+  "main": "mvc.js",
+  "engines": {
+    "node": "~0.4.12"
+  },
+  "dependencies": {
+  	"express": "2.5.0",
+  	"express-namespace": "0.0.4"
+  	"express-params": "0.0.1",
+  	"connect-form": "0.2.1",
+  	"generic-pool": "1.0.7",
+  	"mysql": "0.9.4",
+  	"underscore": "1.2.1",
+  	"underscore.string": "1.1.6",
+  	"xml2js": "0.1.11"
+  },
+  "devDependencies": {}
+}
