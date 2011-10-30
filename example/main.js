@@ -4,7 +4,7 @@
 
 (function() {
 	var config_path	= __dirname + '/config',
-		ExpressMVC	= require('../mvc');
+		ExpressMVC	= require('../lib/mvc');
 		
 	new ExpressMVC(config_path, function (mvc) {
 		mvc.Controller('index');
