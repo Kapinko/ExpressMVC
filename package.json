@@ -11,7 +11,7 @@
   	"mvc",
   	"framework"
   ],
-  "main": "mvc.js",
+  "main": "lib/mvc.js",
   "engines": {
     "node": "~0.4.12"
   },
