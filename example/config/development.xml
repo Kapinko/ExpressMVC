@@ -3,17 +3,18 @@
 <config>
 	<test>true</test>
 	<application>
-		<path>/Library/Webserver/ExpressMVC/example</path>
+		<path>/Library/WebServer/playersync/ExpressMVC/example</path>
 		<controller>
-			<path>/Library/WebServer/ExpressMVC/example/controllers</path>
+			<path>/Library/WebServer/playersync/ExpressMVC/example/controllers</path>
 		</controller>
 		<library>
-			<path>/Library/WebServer/ExpressMVC/lib</path>
+			<path>/Library/WebServer/playersync/ExpressMVC/lib</path>
 		</library>
 		<plugin>
-			<path>/Library/WebServer/ExpressMVC/plugins</path>
+			<path>/Library/WebServer/playersync/ExpressMVC/lib/plugins</path>
 		</plugin>
 		<listen>8080</listen>
+		<debug>true</debug>
 	</application>
 	<database>
 		<host>127.0.0.1</host>
@@ -21,4 +22,11 @@
 		<password></password>
 		<name>psync4</name>
 	</database>
+	<log>
+		<file>/var/log/example.expressmvc.local</file>
+		<!-- Can be one of:
+			EMERGENCY, ALERT, CRITICAL, ERROR, WARNING, NOTICE, INFO or DEBUG 
+		-->
+		<level>DEBUG</level>
+	</log>
 </config>
