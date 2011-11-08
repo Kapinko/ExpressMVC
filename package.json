@@ -22,7 +22,7 @@
 	"express-form": ">= 0.6.2",
   	"connect-form": ">= 0.2.1",
   	"generic-pool": ">= 1.0.7",
-  	"db-mysql": ">= 0.7.3",
+  	"mysql": ">= 0.9.4",
   	"underscore": ">= 1.2.1",
   	"underscore.string": ">= 1.1.6",
   	"xml2js": ">= 0.1.11",
