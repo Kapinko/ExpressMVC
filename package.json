@@ -26,6 +26,7 @@
   	"mysql": ">= 0.9.4",
   	"underscore": ">= 1.2.1",
   	"underscore.string": ">= 1.1.6",
+	"moment": ">= 1.1.0",
   	"xml2js": ">= 0.1.11",
 	"uquery": ">= 0.0.1"
   },
