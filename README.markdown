@@ -80,7 +80,7 @@ Contributors
 
 The following are major contributors of ExpressMVC
 
-    *   Nathan A Sculli ([Kapinko] (http://github.com/Kapinko))
+*   Nathan A Sculli ([Kapinko](http://github.com/Kapinko))
 
 
 License
