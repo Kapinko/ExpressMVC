@@ -11,15 +11,15 @@ be comfortable and familiar to most [PHP] [http://php.net] developers.
 How to install
 --------------
 
-## Make sure the following environment variables are set.
+### Make sure the following environment variables are set.
 
     export MYSQL_CONFIG=/path/to/bin/mysql_config
 
-## Install module via npm @see [npmjs.org] (http://npmjs.org)
+### Install module via npm @see [npmjs.org] (http://npmjs.org)
 
     npm install ExpressMVC
 
-## Install the following modules globally. You may need sudo privileges
+### Install the following modules globally. You may need sudo privileges
 
     npm install -g nodemon
     npm install -g vows
@@ -38,39 +38,39 @@ or (if you require the MySQL library)
 Dependencies
 ------------
 
-    * [node] (http://nodejs.org) - server side javascript based on [V8 JavaScript] 
-(http://code.google.com/p/v8)
-    * [npm] (http://npmjs.org) - the node package manager
 
-## Required npm modules
+    *   [node] (http://nodejs.org) - server side javascript based on [V8 JavaScript] (http://code.google.com/p/v8)
+    *   [npm] (http://npmjs.org) - the node package manager
 
-    * [underscore] (https://github.com/documentcloud/underscore/) - a utility belt
-for javascript
-    * [underscore.string] (https://github.com/edtsech/underscore.string)  - string
-extensions for the underscore library
-    * [express] (https://github.com/visionmedia/express) a node web framework.
-    * [express-namespace](https://github.com/visionmedia/express-namespace) namespaced 
-route support
-    * [express-params](https://github.com/visionmedia/express-params) param 
-pre-condition functions
-    * [express-form] (https://github.com/dandean/express-form) provides data
-filtering and validation as route middleware for your Express applications.
-    * [connect-form] (https://github.com/visionmedia/connect-form) a multipart /
-urlencoded form parsing middleware
-    * [generic-pool] (https://github.com/coopernurse/node-pool)
-    * [db-mysql] (https://github.com/mariano/node-db-mysql) MySQL database binding
-    * [xml2js] (https://github.com/Leonidas-from-XIV/node-xml2js/) XML parsing for node
-    * [moment] (https://github.com/timrwood/moment) - a javascript date library 
-that helps create, manipulate, and format dates without extending the `Date` 
-prototype.
-    * [uquery] (https://github.com/scull7/uquery)
+### Required npm modules
 
-## Suggested modules
+    *   [underscore] (https://github.com/documentcloud/underscore/) - a utility belt
+        for javascript
+    *   [underscore.string] (https://github.com/edtsech/underscore.string)  - string
+        extensions for the underscore library
+    *   [express] (https://github.com/visionmedia/express) a node web framework.
+    *   [express-namespace](https://github.com/visionmedia/express-namespace) 
+        namespaced route support
+    *   [express-params](https://github.com/visionmedia/express-params) param 
+        pre-condition functions
+    *   [express-form] (https://github.com/dandean/express-form) provides data
+        filtering and validation as route middleware for your Express applications.
+    *   [connect-form] (https://github.com/visionmedia/connect-form) a multipart /
+        urlencoded form parsing middleware
+    *   [generic-pool] (https://github.com/coopernurse/node-pool)
+    *   [db-mysql] (https://github.com/mariano/node-db-mysql) MySQL database binding
+    *   [xml2js] (https://github.com/Leonidas-from-XIV/node-xml2js/) XML parsing for node
+    *   [moment] (https://github.com/timrwood/moment) - a javascript date library 
+        that helps create, manipulate, and format dates without extending the 
+        `Date` prototype.
+    *   [uquery] (https://github.com/scull7/uquery)
 
-    * [nodemon] (https://github.com/remy/nodemon) Monitor for any changes in your
-node.js application and automatically restart the server.
-    * [vows] (http://vowsjs.org] Asynchronous BDD &amp; continuous integration 
-for node.js
+### Suggested modules
+
+    *   [nodemon] (https://github.com/remy/nodemon) Monitor for any changes in your
+        node.js application and automatically restart the server.
+    *   [vows] (http://vowsjs.org] Asynchronous BDD &amp; continuous integration 
+        for node.js
 
 
 
@@ -79,7 +79,7 @@ Contributors
 
 The following are major contributors of ExpressMVC
 
-    * Nathan A Sculli ([Kapinko] (http://github.com/Kapinko))
+    *   Nathan A Sculli ([Kapinko] (http://github.com/Kapinko))
 
 
 License
