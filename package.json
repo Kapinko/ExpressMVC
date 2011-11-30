@@ -29,7 +29,7 @@
 	"moment": ">= 1.1.0",
   	"xml2js": ">= 0.1.11",
 	"hbs": ">= 1.0.0",
-	"uquery": ">= 0.0.1";/' 
+	"uquery": ">= 0.0.1" 
   },
   "devDependencies": {}
 }
