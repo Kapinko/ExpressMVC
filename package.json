@@ -24,6 +24,7 @@
   	"generic-pool": ">= 1.0.7",
   	"db-mysql": ">= 0.7.5",
     "pg": ">= 0.6.7",
+    "mongodb": ">= 0.9.7",
   	"underscore": ">= 1.2.1",
   	"underscore.string": ">= 1.1.6",
 	"moment": ">= 1.1.0",
