@@ -16,6 +16,7 @@
     "node": "0.6.x"
   },
   "dependencies": {
+  	"async": ">= 0.1.15",
   	"log": ">= 1.2.0",
   	"express": ">= 2.5.6",
   	"express-namespace": ">= 0.0.4",
