@@ -19,7 +19,8 @@
   	"async": ">= 0.1.15",
   	"log": ">= 1.2.0",
   	"redis": ">= 0.7.1",
-  	"express": ">= 2.5.6",
+	"connect": ">= 2.2.2",
+  	"express": ">= 2.5.9",
   	"express-namespace": ">= 0.0.4",
 	"express-validator": ">= 0.1.1",
 	"express-form": ">= 0.6.2",
@@ -35,7 +36,15 @@
 	"hbs": ">= 1.0.0",
 	"uquery": ">= 0.0.1",
     "winston": ">= 0.5.9",
-    "request": ">= 2.9.3"
+    "request": ">= 2.9.3",
+	"qs": ">= 0.4.2",
+	"mime": ">= 1.2.4",
+	"formidable": ">= 1.0.9",
+	"crc": ">= 0.1.0",
+	"debug": "*",
+	"validator": ">= 0.4.6.2",
+	"handlebars":  "= 1.0.5beta",
+	"sax": ">= 0.4.0"
   },
   "devDependencies": {
       "mocha": ">= 0.9.0",
