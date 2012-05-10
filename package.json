@@ -44,7 +44,8 @@
 	"debug": "*",
 	"validator": ">= 0.4.6.2",
 	"handlebars":  "= 1.0.5beta",
-	"sax": ">= 0.4.0"
+	"sax": ">= 0.4.0",
+	"object-additions": ">=0.5.1"
   },
   "devDependencies": {
       "mocha": ">= 0.9.0",
